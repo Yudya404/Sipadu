@@ -1,0 +1,1074 @@
+/*//////////////////////////////////////////////////////////////////
+/* CSS Baru Tambahan Sendiri */
+ /* Tombol aksesibilitas */
+		.accessibility-button {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background: #d60000;
+			color: white;
+			border: none;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			font-size: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s ease, background 0.3s ease;
+		}
+
+		/* Efek membesar saat hover */
+		.accessibility-button:hover {
+			background: #b30000;
+			transform: scale(1.5);
+		}
+
+        /* Panel aksesibilitas */
+        .accessibility-panel {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            background: white;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: #d60000;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header i {
+            cursor: pointer;
+        }
+
+        .panel-content {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .accessibility-option {
+            background: #f3f3f3;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .accessibility-option i {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .accessibility-option:hover {
+            background: #ddd;
+        }
+
+        /* Efek tampilan */
+        .show {
+            display: block !important;
+        }
+
+        /* Mode Kontras Tinggi */
+        .high-contrast { background: black; color: yellow; }
+
+        /* Perbesar teks */
+        .increase-text { font-size: 18px; }
+
+        /* Ramah Disleksia */
+        .easy-font { font-family: Arial, sans-serif; }
+		
+		/* Icon Proses */
+		.process-wrapper {
+            position: relative;
+            max-width: 100%;
+            padding: 50px 20px;
+        }
+
+        .process-step {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            border: 4px solid #dcdcdc;
+            position: relative;
+            z-index: 2;
+        }
+		
+		.icon {
+			transition: all 0.4s ease-in-out;
+		}
+
+		.icon:hover {
+			transform: scale(1.5) rotate(15deg);
+			filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+		}
+		
+		@keyframes shake {
+			0% { transform: translateX(0); }
+			25% { transform: translateX(-3px); }
+			50% { transform: translateX(3px); }
+			75% { transform: translateX(-3px); }
+			100% { transform: translateX(0); }
+		}
+
+		.process-step:hover .icon-wrapper {
+			animation: shake 0.3s ease-in-out;
+		}
+
+        .process-step.active .icon-wrapper {
+            border-color: red;
+            background-color: red;
+            color: white;
+        }
+
+        /* Garis horizontal antar ikon di desktop */
+		.process-step::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #dcdcdc;
+			top: 30px; /* Sesuaikan dengan ikon */
+			left: 0;
+			z-index: 1; /* Pastikan ada di belakang ikon */
+		}
+
+		/* Hilangkan garis sebelum ikon pertama */
+		.process-step:first-child::after {
+			width: 50%; /* Setengah panjang, agar tidak ada garis di kiri */
+			left: 50%;
+		}
+
+		/* Hilangkan garis setelah ikon terakhir */
+		.process-step:last-child::after {
+			width: 50%; /* Setengah panjang, agar tidak ada garis di kanan */
+		}
+
+		/* Pastikan ikon memiliki latar belakang penuh */
+		.icon-wrapper {
+			width: 60px;
+			height: 60px;
+			background-color: white;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 10px;
+			border: 4px solid #dcdcdc;
+			position: relative;
+			z-index: 2; /* Pastikan di atas garis */
+		}
+
+		/* Responsif untuk tampilan mobile */
+		@media (max-width: 768px) {
+			.process-wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.process-step {
+				width: 100%;
+				position: relative;
+			}
+
+			.process-step:last-child::after {
+				display: none;
+			}
+		}
+		@media (max-width: 768px) { 
+			.process-step::after {
+				display: none !important; /* Hilangkan garis saat di mobile */
+			}
+		}
+		@media (max-width: 768px) {
+			.process-step p {
+				display: none; /* Sembunyikan teks dalam <p> di tampilan mobile */
+			}
+
+			.process-step h5 {
+				font-weight: bold; /* Buat teks dalam <h5> menjadi tebal */
+			}
+		}
+		.process-step h5 {
+			font-weight: bold !important;
+		}
+
+		/* Gunakan selektor spesifik agar tidak terpengaruh CSS lain */
+		.text-center .btn-learn-more {
+			border: 2px solid red;
+			color: red;
+			font-weight: bold;
+			padding: 10px 20px;
+			text-transform: uppercase;
+			display: inline-block;
+			margin-top: 20px;
+			background: transparent; /* Pastikan latar belakang tetap transparan */
+			transition: all 0.3s ease-in-out; /* Tambahkan efek transisi */
+		}
+
+		/* Efek hover */
+		.text-center .btn-learn-more:hover {
+			background-color: red;
+			color: white;
+			transform: scale(1.05); /* Sedikit membesar saat hover */
+		}
+		
+		/* Gunakan selektor spesifik agar tidak terpengaruh CSS lain */
+		.text-end .btn-lapor {
+			border: 2px solid red;
+			color: red;
+			font-weight: bold;
+			padding: 10px 20px;
+			text-transform: uppercase;
+			display: inline-block;
+			margin-top: 20px;
+			background: transparent; /* Pastikan latar belakang tetap transparan */
+			transition: all 0.3s ease-in-out; /* Tambahkan efek transisi */
+		}
+
+		/* Efek hover */
+		.text-end .btn-lapor:hover {
+			background-color: red;
+			color: white;
+			transform: scale(1.1); /* Sedikit membesar saat hover */
+		}
+		
+		/* Jumlah Pengaduan */
+		.banner {
+			background: linear-gradient(to right, #c40030, #a41010); /* Warna gradasi merah */
+			color: white;
+			text-align: center;
+			min-height: 250px;
+			padding: 40px 20px;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+			width: 100%;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+
+        .banner h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+			font-weight: bold;
+        }
+
+        .banner .jumlah {
+            font-size: 50px;
+            font-weight: bold;
+			margin: 0;
+        }
+
+        .instansi-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+			text-align: center;
+			min-height: 250px;
+			font-family: Arial, sans-serif;
+			font-weight: bold;
+			width: 100%;
+			max-width: 100%;
+			margin: 0 auto;
+        }
+
+        .instansi-section h2 {
+            font-size: 30px;
+            color: #555;
+            margin-bottom: 30px;
+			font-weight: bold;
+			text-align: center;
+        }
+
+        .instansi-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .instansi-item {
+            text-align: center;
+        }
+
+        .instansi-item h3 {
+            font-size: 50px;
+            font-weight: bold;
+            margin: 0;
+            color: #222;
+        }
+
+        .instansi-item p {
+            font-size: 16px;
+            color: #777;
+            margin: 5px 0;
+        }
+		
+		/* Styling untuk angka agar lebih menarik */
+		.instansi-item h3 {
+			font-size: 40px;
+			font-weight: bold;
+			color: #d60000;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		/* Efek membesar sedikit saat hover */
+		.instansi-item:hover h3 {
+			transform: scale(1.2);
+		}
+		
+		/* Styling untuk angka agar lebih menarik */
+		.jumlah {
+			font-size: 50px;
+			font-weight: bold;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		/* Efek membesar saat hover */
+		.jumlah:hover {
+			transform: scale(1.2);
+		}
+		
+		/* Sosial Icons Sidebar */
+		/* Kelas umum untuk sidebar sosial */
+		.social-sidebar {
+			position: fixed;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 10px;
+			z-index: 1000;
+		}
+
+		/* Kelas tambahan jika ingin posisi di kanan */
+		.social-sidebar.right {
+			right: 10px;
+		}
+
+		/* Kelas tambahan jika ingin posisi di kiri */
+		.social-sidebar.left {
+			left: 10px;
+		}
+
+		/* Styling untuk icon */
+		.social-icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 48px;
+			height: 48px;
+			border-radius: 12px;
+			background-color: rgba(0, 0, 0, 0.15);
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			transition: all 0.3s ease;
+			text-decoration: none;
+			font-size: 20px;
+		}
+
+		.social-icon:hover {
+		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		/* Default icon color sesuai brand */
+		.social-icon.facebook i {
+		  color: #3b5998;
+		}
+
+		.social-icon.twitter i {
+		  color: #1da1f2;
+		}
+
+		.social-icon.instagram i {
+		  color: #e1306c;
+		}
+
+		.social-icon.youtube i {
+		  color: #ff0000;
+		}
+
+		/* Hover effects */
+		.social-icon.facebook:hover {
+		  background-color: #3b5998;
+		}
+		.social-icon.facebook:hover i {
+		  color: white;
+		}
+
+		.social-icon.twitter:hover {
+		  background-color: #1da1f2;
+		}
+		.social-icon.twitter:hover i {
+		  color: white;
+		}
+
+		.social-icon.instagram:hover {
+		  background-color: #e1306c;
+		}
+		.social-icon.instagram:hover i {
+		  color: white;
+		}
+
+		.social-icon.youtube:hover {
+		  background-color: #ff0000;
+		}
+		.social-icon.youtube:hover i {
+		  color: white;
+		}
+		
+		/* Styling Map */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Styling Informasi */
+        .info-container {
+            text-align: center;
+            margin-top: 20px;
+			text-decoration: none; /* Hilangkan garis bawah */
+        }
+        .info-container h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .info-container p {
+            margin: 5px 0;
+        }
+
+        /* Footer Logos */
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-logos img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+		
+		.map-container {
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+			border-radius: 10px;
+			overflow: hidden;
+		}
+		
+		.info-container {
+			background: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+		}
+
+		.footer-logos {
+			display: flex;
+			justify-content: center;
+			gap: 20px; /* Jarak antar logo */
+		}
+
+		.footer-logos img {
+			width: 150px; /* Ukuran awal logo */
+			height: auto;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.footer-logos img:hover {
+			transform: scale(1.1) translateY(-5px); /* Membesar & naik sedikit */
+			box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Tambah efek bayangan */
+		}
+		
+		@keyframes fadeInUp {
+			0% {
+				opacity: 0;
+				transform: translateY(30px) scale(0.9);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0) scale(1);
+			}
+		}
+
+		.animated-text-wrapper {
+		  animation: fadeInUp 1s ease-out forwards;
+		  animation-delay: 0.3s;
+		}
+
+		.animated-text {
+		  transition: transform 0.3s ease;
+		  display: inline-block;
+		  position: relative; /* Dibutuhkan untuk ::after */
+		}
+
+		.animated-text:hover {
+		  transform: scale(1.1);
+		}
+
+		/* Tambahkan garis bawah */
+		.animated-text::after {
+		  content: "";
+		  display: block;
+		  width: 80px;
+		  height: 6px;
+		  background-color: #fff; /* Warna garis */
+		  margin: 10px auto 0;
+		  border-radius: 2px;
+		}
+
+		/* fadeInUp hanya memindahkan wrapper */
+		@keyframes fadeInUp {
+		  from {
+			opacity: 0;
+			transform: translateY(40px);
+		  }
+		  to {
+			opacity: 1;
+			transform: translateY(0);
+		  }
+		}
+		
+		/* Video Tentang Lapor */
+		.border1 {
+			position: relative;
+			border: 5px solid #333; /* Border sekitar video */
+			border-radius: 15px; /* Sudut border yang membulat */
+			padding: 10px; /* Padding agar video tidak menempel pada border */
+			box-sizing: border-box; /* Memastikan padding dan border dihitung dalam ukuran elemen */
+			transition: border 0.3s ease; /* Animasi transisi saat hover */
+			width: 100%;
+			height: 300px;
+		}
+		
+		/* Container Video */
+		.video-container {
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+			padding-bottom: 56.25%; /* Rasio aspek 16:9 */
+			height: 300px; /* Menetapkan tinggi pasti */
+			overflow: hidden;
+			border-radius: 15px;
+			padding: 20px; /* Padding tambahan di sekitar video */
+		}
+
+		/* Iframe Video */
+		.video-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 300px; /* Iframe mengisi penuh container */
+			object-fit: contain; /* Agar video menyesuaikan dan tidak terpotong */
+		}
+
+		/* Styling Map */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Styling Informasi */
+        .info-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .info-container h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .info-container p {
+            margin: 5px 0;
+			text-decoration: none !important; /* Hilangkan garis bawah */
+        }	
+		.icon-header-item i {
+			font-size: 2.5rem;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		/* Pastikan perubahan hanya berlaku untuk .custom-menu */
+		.custom-menu {
+			list-style: none; /* Hilangkan bullet point */
+			padding: 0;
+			margin: 0;
+		}
+
+		/* Efek saat kursor menyentuh teks */
+		.custom-menu li a:hover {
+			transform: scale(1.1); /* Membesarkan sedikit */
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan teks */
+		}
+		
+		/* Gunakan selektor spesifik agar tidak terpengaruh CSS lain */
+		.text-center .btn-register {
+			border: 2px solid red;
+			color: dark;
+			font-weight: bold;
+			padding: 10px 20px;
+			text-transform: uppercase;
+			display: inline-block;
+			background: transparent; /* Pastikan latar belakang tetap transparan */
+			transition: all 0.3s ease-in-out; /* Tambahkan efek transisi */
+		}
+
+		/* Efek hover */
+		.text-center .btn-register:hover {
+			background-color: red;
+			color: white;
+			transform: scale(1.05); /* Sedikit membesar saat hover */
+		}
+		
+		.hover-icon {
+			width: 40px;
+			margin-left: 8px;
+			transition: transform 0.3s ease, opacity 0.3s;
+		}
+
+		.hover-icon:hover {
+			transform: scale(1.3); /* Efek membesar */
+			opacity: 0.8; /* Sedikit transparan */
+		}
+		
+		.lembaga-container {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		.lembaga-item {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			background: #f9f9f9;
+			padding: 15px;
+			border-radius: 10px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.lembaga-item:hover {
+			transform: scale(1.2);
+			box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* Tambahkan efek bayangan saat hover */
+		}
+
+		.lembaga-item img {
+			width: 100px;
+			height: 100px;
+			border-radius: 10px;
+			object-fit: cover;
+		}
+		
+		/* Efek membesar saat disentuh atau dihover */
+		.lembaga-item img:hover,
+		.lembaga-item img:active {
+			transform: scale(1.3);
+		}
+
+		.lembaga-item div {
+			flex: 1;
+		}
+
+		.lembaga-item b {
+			font-size: 16px;
+			color: #333;
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.lembaga-item p {
+			margin: 0;
+			font-size: 14px;
+			color: #555;
+		}
+
+		/* Responsif untuk tampilan mobile */
+		@media (max-width: 600px) {
+			.lembaga-item {
+				flex-direction: column;
+				text-align: center;
+				padding: 10px;
+			}
+
+			.lembaga-item img {
+				width: 120px;
+				height: 120px;
+				margin-bottom: 10px;
+			}
+		}
+		
+		.pdf-icon {
+        transition: transform 0.3s ease-in-out;
+		}
+
+		/* Efek membesar saat disentuh atau dihover */
+		.pdf-icon:hover,
+		.pdf-icon:active {
+			transform: scale(1.3);
+		}
+		
+		 /* Style Custom Label */
+        .custom-file-label {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			cursor: pointer;
+			background: #f8f9fa;
+			padding: 10px;
+			border-radius: 8px;
+			border: 1px solid #ccc;
+			width: 100%;
+			max-width: 1200px;
+			transition: transform 0.2s ease-in-out; /* transition untuk scaling */
+		}
+
+		.custom-file-label:hover {
+			transform: scale(1.2); /* efek zoom saat hover */
+		}
+
+		.custom-file-label i {
+			font-size: 18px;
+			color: #555;
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.custom-file-label:hover i {
+			transform: scale(1.2); /* ikon juga membesar saat hover */
+		}
+
+        .hidden-input {
+            display: none;
+        }
+		
+		/* Style Preview */
+		.preview-container {
+			margin-top: 15px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			align-items: center; /* Agar preview tetap terpusat */
+		}
+
+		/* Hanya mempengaruhi elemen preview file */
+		.file-preview {
+			max-width: 250px; /* Ukuran maksimum */
+			max-height: 250px; /* Tinggi maksimum */
+			height: auto;
+			display: none;
+			border-radius: 8px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			object-fit: contain;
+		}
+
+		/* Ukuran default untuk PDF Preview (Desktop) */
+		iframe#pdfPreview {
+			width: 500px; /* Lebar default untuk layar besar */
+			height: 700px; /* Tinggi default */
+			max-width: 100%; /* Hindari overflow di layar kecil */
+			border: none; /* Menghilangkan border bawaan */
+		}
+
+		/* Untuk layar tablet (max-width: 768px) */
+		@media (max-width: 768px) {
+			iframe#pdfPreview {
+				width: 400px;
+				height: 500px;
+			}
+		}
+
+		/* Untuk layar mobile (max-width: 480px) */
+		@media (max-width: 480px) {
+			iframe#pdfPreview {
+				width: 300px;
+				height: 400px;
+			}
+		}
+		
+		/* Modal Fullscreen */
+		.preview-modal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.8);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 9999;
+		}
+
+		/* Konten dalam modal */
+		.preview-content {
+			position: relative;
+			max-width: 90%;
+			max-height: 90%;
+			text-align: center;
+		}
+
+		/* Gambar, video, atau PDF dalam modal */
+		.preview-content img,
+		.preview-content video,
+		.preview-content iframe {
+			max-width: 100%;
+			max-height: 80vh;
+			border-radius: 10px;
+			box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+		}
+
+		/* Tombol Close */
+		.close-btn {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			font-size: 30px;
+			color: white;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		
+		.text-primary.fw-bold {
+		  text-decoration: none;
+		}
+		
+		/* Wrapper agar fleksibel */
+		.custom-select-wrapper {
+		  width: 100%;
+		  max-width: 1200px; /* Sesuaikan panjang maksimal */
+		  margin-bottom: 15px;
+		}
+
+		/* Label sebagai container */
+		.custom-select-label {
+		  display: flex;
+		  align-items: center;
+		  background: #f8f9fa;
+		  border: 1px solid #ccc;
+		  padding: 10px 15px;
+		  border-radius: 8px;
+		  cursor: pointer;
+		  position: relative;
+		  transition: transform 0.2s ease;
+		}
+
+		/* Efek scaling saat hover */
+		.custom-select-label:hover {
+		  transform: scale(1.2);
+		}
+
+		/* Ikon di kiri */
+		.custom-select-label i {
+		  font-size: 18px;
+		  color: #2980b9;
+		  margin-right: 10px;
+		}
+
+		/* Select style */
+		.custom-select {
+		  flex: 1;
+		  border: none;
+		  background: transparent;
+		  font-size: 16px;
+		  color: #333;
+		  padding: 5px 0;
+		  appearance: none;
+		  outline: none;
+		  cursor: pointer;
+		}
+
+		/* Tambahan untuk icon panah default */
+		.custom-select::-ms-expand {
+		  display: none;
+		}
+		
+		/* WRAPPER UMUM */
+		.floating-input-wrapper {
+			position: relative;
+			margin-bottom: 10px;
+		}
+
+		/* === UNTUK INPUT === */
+		.floating-input-wrapper input {
+			width: 100%;
+			padding: 14px 12px 14px 45px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			font-size: 16px;
+			background: #fff;
+		}
+
+		.floating-input-wrapper input:focus + label,
+		.floating-input-wrapper input:not(:placeholder-shown) + label {
+			top: 0;
+			left: 45px;
+			font-size: 12px;
+			color: #555;
+		}
+
+		/* === UNTUK TEXTAREA === */
+		.floating-input-wrapper textarea {
+			width: 100%;
+			padding: 16px 16px 16px 50px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			font-size: 16px;
+			background-color: #fdfdfd;
+			resize: vertical;
+			min-height: 100px;
+			box-sizing: border-box;
+		}
+
+		.floating-input-wrapper textarea:focus + label,
+		.floating-input-wrapper textarea:not(:placeholder-shown) + label {
+			top: -8px;
+			left: 45px;
+			font-size: 12px;
+			color: #3498db;
+		}
+
+		/* LABEL UMUM */
+		.floating-input-wrapper label {
+			position: absolute;
+			top: 50%;
+			left: 45px;
+			transform: translateY(-50%);
+			transition: 0.2s ease all;
+			color: #999;
+			pointer-events: none;
+			background: white;
+			padding: 0 4px;
+		}
+
+		/* IKON */
+		/* Tambahkan animasi transisi */
+		.floating-input-wrapper i {
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			transform: translateY(-50%);
+			font-size: 16px;
+			color: #888;
+			transition: transform 0.2s ease, color 0.2s ease;
+		}
+
+		/* Saat hover pada wrapper, ikon membesar */
+		.floating-input-wrapper:hover i {
+			transform: translateY(-50%) scale(1.8);
+			color: #555;
+		}
+
+		/* Saat input atau textarea fokus, ikon membesar */
+		.floating-input-wrapper input:focus ~ i,
+		.floating-input-wrapper textarea:focus ~ i {
+			transform: translateY(-50%) scale(1.8);
+			color: #3498db; /* Atau warna sesuai tema kamu */
+		}
+		
+		#fileNameDisplay {
+		display: none;
+		color: #555;
+		margin-top: 10px;
+		font-style: italic;
+	}
+	
+	.card.bg-light {
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.card.bg-light:hover {
+		transform: scale(1.2);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+	
+	/* Untuk desktop: batasi lebar maksimal */
+	@media (min-width: 768px) {
+		#instansiTable_filter input {
+			max-width: 350px;
+			display: inline-block;
+		}
+	}
+	
+	.animate-scale {
+		background-color: #fff3cd;
+		color: #856404;
+		padding: 6px 10px;
+		border-radius: 5px;
+		display: inline-block;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.animate-scale:hover {
+		transform: scale(1.2);
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	}
+	
+	.table-responsive.nowrap {
+        display: none;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
