@@ -31,7 +31,6 @@ dibangun dengan kombinasi teknologi modern backend dan frontend untuk memberikan
 
 ## 🖼️ Tampilan Antarmuka
 
-<<<<<<< HEAD
 | Dashboard | WhatsApp Bot |
 |----------|---------------|
 | ![dashboard](images/dashboardPengaduan.png) | ![wa-bot](images/waBot.jpg) |
