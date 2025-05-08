@@ -76,3 +76,6 @@ Pull request dan ide baru sangat diterima! Silakan fork repo ini dan kirim perub
 
 📄 Lisensi
 Proyek ini menggunakan lisensi MIT – bebas digunakan dengan menyertakan atribusi.
+
+🙋‍♂️ Kontak Pengembang
+📧 Email: [yudyasukma2@gmail.com]
